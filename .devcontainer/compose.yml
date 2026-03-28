@@ -20,6 +20,11 @@ services:
       - POWERLEVEL9K_DISABLE_GITSTATUS=true
     working_dir: /workspace
     tty: true
+    depends_on:
+      - playwright
+  playwright:
+    image: mcr.microsoft.com/playwright/mcp
+    command: ["--host", "0.0.0.0", "--port", "8931"]
 volumes:
   claude-code-bashhistory:
   claude-code-config:
